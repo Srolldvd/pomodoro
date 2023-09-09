@@ -10,7 +10,7 @@ const modalElems = {
   secondaryColorPicker: modal.querySelector("[data-pomodoro-secondary-color]"),
   fontColorPicker: modal.querySelector("[data-pomodoro-font-color]"),
   timerValues: modal.querySelectorAll("[data-set-time]"),
-  fontStyles: modal.querySelectorAll("[data-set-font]")
+  fontStyles: modal.querySelectorAll("[data-set-font]"),
 };
 
 let { timerStoredValues, timerInit } = {};
@@ -40,17 +40,17 @@ const getTimerValues = () => {
     if (timerValue.dataset.setTime === "pomodoro") {
       timerStoredValues = {
         ...timerStoredValues,
-        workTime: timerValue.value
+        workTime: timerValue.value,
       };
     } else if (timerValue.dataset.setTime === "short-break") {
       timerStoredValues = {
         ...timerStoredValues,
-        shortBreak: timerValue.value
+        shortBreak: timerValue.value,
       };
     } else if (timerValue.dataset.setTime === "long-break") {
       timerStoredValues = {
         ...timerStoredValues,
-        longBreak: timerValue.value
+        longBreak: timerValue.value,
       };
     }
   });
@@ -62,7 +62,7 @@ const timerSettings = () => {
     timerInit = {
       workTime: 25,
       shortBreak: 5,
-      longBreak: 15
+      longBreak: 15,
     };
   }
 
@@ -71,17 +71,11 @@ const timerSettings = () => {
       APP.minutes = timerInit.workTime;
       timer.time = timerInit.workTime;
       updateTimer(timerElem);
-    } else if (
-      timer.shortBreak.checked &&
-      timerValue.dataset.setTime === "short-break"
-    ) {
+    } else if (timer.shortBreak.checked && timerValue.dataset.setTime === "short-break") {
       APP.minutes = timerInit.shortBreak;
       timer.time = timerInit.shortBreak;
       updateTimer(timerElem);
-    } else if (
-      timer.longBreak.checked &&
-      timerValue.dataset.setTime === "long-break"
-    ) {
+    } else if (timer.longBreak.checked && timerValue.dataset.setTime === "long-break") {
       APP.minutes = timerInit.longBreak;
       timer.time = timerInit.longBreak;
       updateTimer(timerElem);
@@ -107,10 +101,7 @@ const setColor = () => {
 
     root.style.setProperty("--pomodoro-primary-clr", timerInit.primaryColor);
 
-    root.style.setProperty(
-      "--pomodoro-secondary-clr",
-      timerInit.secondaryColor
-    );
+    root.style.setProperty("--pomodoro-secondary-clr", timerInit.secondaryColor);
 
     root.style.setProperty("--pomodoro-primary-font-clr", timerInit.fontColor);
   }
@@ -119,31 +110,22 @@ const setColor = () => {
     ...timerStoredValues,
     primaryColor: modalElems.primaryColorPicker.value,
     secondaryColor: modalElems.secondaryColorPicker.value,
-    fontColor: modalElems.fontColorPicker.value
+    fontColor: modalElems.fontColorPicker.value,
   };
 };
 
 const updateColor = () => {
-  root.style.setProperty(
-    "--pomodoro-primary-clr",
-    modalElems.primaryColorPicker.value
-  );
+  root.style.setProperty("--pomodoro-primary-clr", modalElems.primaryColorPicker.value);
 
-  root.style.setProperty(
-    "--pomodoro-secondary-clr",
-    modalElems.secondaryColorPicker.value
-  );
+  root.style.setProperty("--pomodoro-secondary-clr", modalElems.secondaryColorPicker.value);
 
-  root.style.setProperty(
-    "--pomodoro-primary-font-clr",
-    modalElems.fontColorPicker.value
-  );
+  root.style.setProperty("--pomodoro-primary-font-clr", modalElems.fontColorPicker.value);
 
   timerStoredValues = {
     ...timerStoredValues,
     primaryColor: modalElems.primaryColorPicker.value,
     secondaryColor: modalElems.secondaryColorPicker.value,
-    fontColor: modalElems.fontColorPicker.value
+    fontColor: modalElems.fontColorPicker.value,
   };
 
   localStorage.setItem("timerValues", JSON.stringify(timerStoredValues));
@@ -168,7 +150,7 @@ const updateFontStyle = () => {
       if (fontStyle.checked) {
         timerStoredValues = {
           ...timerStoredValues,
-          font: fontStyle.dataset.setFont
+          font: fontStyle.dataset.setFont,
         };
         localStorage.setItem("timerValues", JSON.stringify(timerStoredValues));
       }
@@ -182,10 +164,7 @@ const updateFontStyle = () => {
       } else if (fontStyle.dataset.setFont === "bold" && fontStyle.checked) {
         root.style.setProperty("--pomodoro-font-style", "normal");
         root.style.setProperty("--pomodoro-font-weight", "bold");
-      } else if (
-        fontStyle.dataset.setFont === "cursive-bold" &&
-        fontStyle.checked
-      ) {
+      } else if (fontStyle.dataset.setFont === "cursive-bold" && fontStyle.checked) {
         root.style.setProperty("--pomodoro-font-style", "italic");
         root.style.setProperty("--pomodoro-font-weight", "bold");
       }
@@ -204,7 +183,7 @@ export {
   updateColor,
   getTimerValues,
   setFontStyle,
-  updateFontStyle
+  updateFontStyle,
 };
 
 // refactor export / import

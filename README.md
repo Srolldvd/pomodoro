@@ -5,6 +5,7 @@
 [Link to pomodoro challenge](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G)
 
 Using parcel.js for module bundling -> npm i
+
 scripts:
 
 1. npm run dev
