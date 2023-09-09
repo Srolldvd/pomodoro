@@ -1,0 +1,31 @@
+.pomodoro-state {
+  &__wrapper {
+    padding: 0.5rem 0.25rem;
+    background-color: var(--pomodoro-primary-clr-darker);
+    border-radius: 25px;
+    cursor: default;
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 1rem 0.75rem;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 1;
+    color: var(--pomodoro-secondary-font-clr);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__radio {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+
+    &:checked + .pomodoro-state__label {
+      background-color: var(--pomodoro-secondary-clr);
+      color: var(--pomodoro-primary-clr-darker);
+    }
+  }
+}

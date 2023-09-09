@@ -1,0 +1,91 @@
+//MODAL
+@import "./variables";
+
+.pomodoro-settings {
+  &__btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  &__modal {
+    position: fixed;
+    top: 25%;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    padding: 1.5rem;
+    z-index: 999;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__separator {
+    width: calc(100% + 3rem);
+    margin: 1.5rem -1.5rem;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__wrapper {
+
+  }
+
+  &__descriptions {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: $primary-clr;
+  }
+
+  &__radio-wrapper {
+    display: flex;
+    gap: .5rem;
+
+   span {
+      flex-grow: 1;
+    }
+  }
+
+  &__font {
+      background-color: $input-bg;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:has(input:checked) {
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      &--normal {
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      &--cursive {
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      &--bold {
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      &--cursive-bold {
+        font-weight: bold;
+        font-style: italic;
+      }
+  }
+
+  &__radio {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}

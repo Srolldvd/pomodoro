@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/main.1f19ae8e.js"></script>
+  <link rel="stylesheet" href="/main.1f19ae8e.css"></head>
+  <body>
+    <div id="content">
+      <div class="pomodoro__wrapper">
+        <h1>pomodoro</h1>
+
+        <form class="pomodoro-state">
+          <fieldset data-pomodoro-state="" class="pomodoro-state__wrapper">
+            <input type="radio" name="pomodoro-state" id="work-time" class="pomodoro-state__radio" data-work-time="" data-state="work-time" checked="">
+            <label for="work-time" class="pomodoro-state__label">pomodoro</label>
+
+            <input type="radio" name="pomodoro-state" id="short-break" class="pomodoro-state__radio" data-short-break="" data-state="shor-break">
+            <label for="short-break" class="pomodoro-state__label">short break</label>
+
+            <input type="radio" name="pomodoro-state" id="long-break" class="pomodoro-state__radio" data-long-break="" data-state="long-break">
+            <label for="long-break" class="pomodoro-state__label">long break</label>
+          </fieldset>
+        </form>
+
+        <div class="pomodoro-timer" id="pomodoro-timer">
+          <div class="pomodoro-countdown">
+            <svg class="pomodoro-countdown__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <g class="pomodoro-countdown__circle">
+                <circle class="pomodoro-countdown__path-elapsed" cx="50" cy="50" r="45"></circle>
+                <path id="timer-path-remaining" stroke-dasharray="283" class="pomodoro-countdown__path-remaining" d="
+						M 50, 50
+						m -45, 0
+						a 45,45 0 1,0 90,0
+						a 45,45 0 1,0 -90,0
+					"></path>
+              </g>
+            </svg>
+          </div>
+
+          <div class="pomodoro-timer__time" data-pomodoro-timer="">
+            <span data-minutes="">00</span>
+            <span>:</span>
+            <span data-seconds="">00</span>
+          </div>
+          <div class="pomodoro-timer__controls">
+            <span class="pomodoro-timer__state tooltip" data-timer-control="play" data-tooltip="Play">
+              <i class="fa-solid fa-play"></i>
+            </span>
+            <span class="pomodoro-timer__reset tooltip" data-timer-reset="" data-tooltip="Reset">
+              <i class="fa-solid fa-rotate-right"></i>
+            </span>
+          </div>
+        </div>
+
+        <span class="count-pomodoros tooltip" data-count-pomodoros="" data-tooltip="Number of pomodoros">#1</span>
+
+        <div class="pomodoro-settings__btn tooltip" data-tooltip="Pomodoro settings" data-open-modal="">
+          <span>
+            <i class="fa-solid fa-gear"></i>
+          </span>
+        </div>
+      </div>
+
+      <!--   MODAL -->
+      <dialog data-modal-settings="" class="pomodoro-settings__modal">
+        <div class="pomodoro-settings__header">
+          <h3>Settings</h3>
+          <span data-close-modal="">x</span>
+        </div>
+        <hr class="pomodoro-settings__separator">
+        <form class="pomodoro-settings__form" data-settings="">
+          <fieldset class="pomodoro-settings__wrapper">
+            <span class="pomodoro-settings__descriptions">TIME (MINUTES)</span>
+            <label for="pomodoro-setting" class="pomodoro-settings__label">pomodoro
+              <input type="number" name="pomodoro-setting" id="pomodoro-setting" min="1" max="59" value="25" class="pomodoro-settings__inp" data-set-time="pomodoro" required="">
+            </label>
+
+            <label for="short-break-setting" class="pomodoro-settings__label">short break
+              <input type="number" name="short-break-setting" id="short-break-setting" min="1" max="59" value="5" class="pomodoro-settings__inp" data-set-time="short-break" required="">
+            </label>
+
+            <label for="long-break-setting" class="pomodoro-settings__label">long break
+              <input type="number" name="long-break-setting" id="long-break-setting" min="1" max="59" value="15" class="pomodoro-settings__inp" data-set-time="long-break" required="">
+            </label>
+          </fieldset>
+
+          <fieldset class="pomodoro-settings__radio-wrapper">
+            <span class="pomodoro-settings__descriptions">FONT</span>
+            <label for="font-normal" class="pomodoro-settings__font pomodoro-settings__font--normal">Aa
+              <input type="radio" name="pomodoro-font" id="font-normal" class="pomodoro-settings__radio" data-set-font="normal">
+            </label>
+            <label for="font-cursive" class="pomodoro-settings__font pomodoro-settings__font--cursive">Aa
+              <input type="radio" name="pomodoro-font" id="font-cursive" class="pomodoro-settings__radio" data-set-font="cursive">
+            </label>
+            <label for="font-bold" class="pomodoro-settings__font pomodoro-settings__font--bold">Aa
+              <input type="radio" name="pomodoro-font" id="font-bold" class="pomodoro-settings__radio" data-set-font="bold">
+            </label>
+            <label for="font-cursive-bold" class="pomodoro-settings__font pomodoro-settings__font--cursive-bold">Aa
+              <input type="radio" name="pomodoro-font" id="font-cursive-bold" class="pomodoro-settings__radio" data-set-font="cursive-bold">
+            </label>
+          </fieldset>
+
+            <fieldset class="pomodoro-settings__radio-wrapper">
+              <span class="pomodoro-settings__descriptions">COLOR</span>
+              <label for="pomodoro-color" class="tooltip" data-tooltip="Primary color"><input type="color" name="pomodoro-color" id="pomodoro-primary-color" value="#1e2240" data-pomodoro-primary-color=""></label>
+              <label for="pomodoro-color" class="tooltip" data-tooltip="Secondary color"><input type="color" name="pomodoro-color" id="pomodoro-secondary-color" value="#f47373" data-pomodoro-secondary-color=""></label>
+              <label for="pomodoro-color" class="tooltip" data-tooltip="Font color"><input type="color" name="pomodoro-color" id="pomodoro-font-color" value="#e8e8e8" data-pomodoro-font-color=""></label>
+            </fieldset>
+          
+          <button type="submit">Apply</button>
+        </form>
+      </dialog>
+    </div>
+  </body>
+</html>

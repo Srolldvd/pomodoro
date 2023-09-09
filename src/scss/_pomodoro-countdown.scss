@@ -1,0 +1,28 @@
+.pomodoro-countdown {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  &__svg {
+    transform: scaleX(-1); //Z jaké strany probíhá načítání
+  }
+
+  &__circle {
+    fill: none;
+    stroke: none;
+  }
+
+  &__path-elapsed {
+    stroke-width: 3px;
+    stroke: var(--pomodoro-secondary-clr);
+  }
+
+  &__path-remaining {
+    stroke-width: 3px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    //transition: 10ms linear all;
+    stroke: currentColor;
+  }
+}

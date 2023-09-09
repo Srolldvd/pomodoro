@@ -1,0 +1,49 @@
+:root {
+  --pomodoro-primary-clr: #1e2240;
+  --pomodoro-primary-clr-lighter: color-mix(
+    in srgb,
+    var(--pomodoro-primary-clr),
+    #fff 7%
+  );
+  --pomodoro-primary-clr-darker: color-mix(
+    in srgb,
+    var(--pomodoro-primary-clr),
+    #000 20%
+  );
+  --pomodoro-secondary-clr: #f47373;
+  --pomodoro-primary-font-clr: #e8e8e8;
+  --pomodoro-secondary-font-clr: color-mix(
+    in srgb,
+    var(--pomodoro-primary-font-clr),
+    #000 50%
+  ); // darken clr
+  --pomodoro-font-style: normal;
+  --pomodoro-font-weight: normal;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  min-height: 100vh;
+  background-color: var(--pomodoro-primary-clr);
+  color: var(--pomodoro-primary-font-clr);
+  font-weight: var(--pomodoro-font-weight);
+  font-style: var(--pomodoro-font-style);
+}
+
+fieldset {
+  border: none;
+}
+
+a {
+  color: var(--pomodoro-primary-font-clr);
+  text-decoration: none;
+}
