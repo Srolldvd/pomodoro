@@ -146,6 +146,9 @@ a {
   stroke: currentColor;
 }
 
+.pomodoro-settings {
+  position: relative;
+}
 .pomodoro-settings__btn {
   font-size: 1.5rem;
   cursor: pointer;
@@ -172,10 +175,26 @@ a {
   flex-direction: column;
   gap: 2rem;
 }
+.pomodoro-settings__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.pomodoro-settings__descriptions:first-child {
+  grid-column: 1/4;
+}
+.pomodoro-settings__label {
+  display: flex;
+  flex-direction: column;
+}
 .pomodoro-settings__descriptions {
   font-size: 1.2rem;
   font-weight: bolder;
   color: #1e2240;
+}
+.pomodoro-settings__wrapper, .pomodoro-settings__radio-wrapper:not(.pomodoro-settings__radio-wrapper:nth-child(3)) {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #7f7f7f;
 }
 .pomodoro-settings__radio-wrapper {
   display: flex;
@@ -213,6 +232,22 @@ a {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
+}
+.pomodoro-settings__submit-btn {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  padding: 0.75rem 2rem;
+  background-color: #f47373;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-radius: 15px;
+  transform: translate(-50%, 50%);
+  transition: background-color 250ms ease;
+}
+.pomodoro-settings__submit-btn:hover {
+  background-color: #f25b5b;
 }
 
 .tooltip {

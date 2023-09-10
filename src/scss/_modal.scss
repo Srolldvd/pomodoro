@@ -2,6 +2,8 @@
 @import "./variables";
 
 .pomodoro-settings {
+  position: relative;
+
   &__btn {
     font-size: 1.5rem;
     cursor: pointer;
@@ -34,7 +36,21 @@
   }
 
   &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
 
+  &__descriptions:first-child {
+    grid-column: 1 / 4;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__inp {
   }
 
   &__descriptions {
@@ -43,49 +59,73 @@
     color: $primary-clr;
   }
 
+  &__wrapper,
+  &__radio-wrapper:not(.pomodoro-settings__radio-wrapper:nth-child(3)) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $border-clr;
+  }
+
   &__radio-wrapper {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
 
-   span {
+    span {
       flex-grow: 1;
     }
   }
 
   &__font {
-      background-color: $input-bg;
-      border-radius: 50%;
-      cursor: pointer;
+    background-color: $input-bg;
+    border-radius: 50%;
+    cursor: pointer;
 
-      &:has(input:checked) {
-        background-color: #1e1e1e;
-        color: #fff;
-      }
+    &:has(input:checked) {
+      background-color: #1e1e1e;
+      color: #fff;
+    }
 
-      &--normal {
-        font-weight: normal;
-        font-style: normal;
-      }
+    &--normal {
+      font-weight: normal;
+      font-style: normal;
+    }
 
-      &--cursive {
-        font-weight: normal;
-        font-style: italic;
-      }
+    &--cursive {
+      font-weight: normal;
+      font-style: italic;
+    }
 
-      &--bold {
-        font-weight: bold;
-        font-style: normal;
-      }
+    &--bold {
+      font-weight: bold;
+      font-style: normal;
+    }
 
-      &--cursive-bold {
-        font-weight: bold;
-        font-style: italic;
-      }
+    &--cursive-bold {
+      font-weight: bold;
+      font-style: italic;
+    }
   }
 
   &__radio {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
+  }
+
+  &__submit-btn {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    padding: 0.75rem 2rem;
+    background-color: $secondary-clr;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 15px;
+    transform: translate(-50%, 50%);
+    transition: background-color 250ms ease;
+
+    &:hover {
+      background-color: darken($secondary-clr, 5%);
+    }
   }
 }
